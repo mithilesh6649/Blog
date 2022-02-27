@@ -14,23 +14,37 @@
       	@csrf 
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" name="name" placeholder="Enter name" id="name">
+    <input type="text" class="form-control @error('name') border-danger @enderror" value="{{old('name')}}" name="name" placeholder="Enter name" id="name">
+    
+      <div class="mt-1 text-danger font-weight-bold text-center">
+       @error('name') <i class="fa fa-warning mr-1"></i> {{$message}} @enderror 
+      </div>
+    
   </div>
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" class="form-control" name="username" placeholder="Enter username" id="username">
+    <input type="text" class="form-control" name="username" value="{{old('username')}}"  placeholder="Enter username" id="username">
+     <div class="mt-1 text-danger font-weight-bold text-center">
+       @error('username') <i class="fa fa-warning mr-1"></i> {{$message}} @enderror 
+      </div>
   </div>
     <div class="form-group">
     <label for="username">Email</label>
-    <input type="email"  name="email" class="form-control" placeholder="Enter Email" id="email">
+    <input type="email"  name="email" class="form-control" value="{{old('email')}}" placeholder="Enter Email" id="email">
+     <div class="mt-1 text-danger font-weight-bold text-center">
+       @error('email') <i class="fa fa-warning mr-1"></i> {{$message}} @enderror 
+      </div>
   </div>
     <div class="form-group">
     <label for="pwd">Password</label>
     <input type="password" name="password" class="form-control" placeholder="Choose a password" id="pwd">
+     <div class="mt-1 text-danger font-weight-bold text-center">
+       @error('password') <i class="fa fa-warning mr-1"></i> {{$message}} @enderror 
+      </div>
   </div>
     <div class="form-group">
     <label for="pwd">Password again</label>
-    <input type="password" name="password_con" class="form-control" placeholder="Repeat  password" id="pwd">
+    <input type="password" name="password_confirmation" class="form-control" placeholder="Repeat  password" id="pwd">
   </div>
  
   <button type="submit" class="btn btn-primary">Register</button>

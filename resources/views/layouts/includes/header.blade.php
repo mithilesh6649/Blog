@@ -8,30 +8,56 @@
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="#">Home</a>
+      <a class="nav-link" href="/">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Dashboard</a>
+      <a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Post</a>
+      <a class="nav-link" href="{{route('post')}}">Post</a>
     </li>
   </ul>
-
+{{--   Both code are same 
     <ul class="navbar-nav ml-auto">
-       <li class="nav-item">
-      <a class="nav-link" href="#">QWERT</a>
-    </li>
+     @if(auth()->user())
     <li class="nav-item">
-      <a class="nav-link" href="#">Login</a>
+      <a class="nav-link" href="#">Mithilesh</a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link" href="#">Logout</a>
+     </li>
+     @else
+       
+    <li class="nav-item">
+      <a class="nav-link" href="{{route('login')}}">Login</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{route('register')}}">Register</a>
     </li>
+     @endif
+  </ul>  
+ --}} 
+ 
+
+     <ul class="navbar-nav ml-auto">
+     @auth
     <li class="nav-item">
-      <a class="nav-link" href="#">Logout</a>
+      <a class="nav-link" href="#">{{ auth()->user()->username }}</a>
     </li>
-  </ul>
+      <li class="nav-item">
+      <a class="nav-link" href="{{route('logout')}}">Logout</a>
+     </li>
+     @endauth
+     @guest
+    <li class="nav-item">
+      <a class="nav-link" href="{{route('login')}}">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{route('register')}}">Register</a>
+    </li>
+     @endguest
+  </ul> 
+
 </nav>
 
 </header>
