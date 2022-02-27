@@ -20,7 +20,7 @@
 
     <ul class="navbar-nav ml-auto">
        <li class="nav-item">
-      <a class="nav-link" href="#">Mithilesh Kumar</a>
+      <a class="nav-link" href="#">QWERT</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Login</a>
